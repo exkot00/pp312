@@ -3,6 +3,7 @@ package com.example.demo.Service;
 import com.example.demo.model.User;
 import com.example.demo.repository.UserRepository;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 @Service
@@ -22,16 +23,19 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
+    @Transactional
     public void save(User user) {
          userRepository.save(user);
     }
 
     @Override
+    @Transactional
     public void update(User user) {
         userRepository.save(user);
     }
 
     @Override
+    @Transactional
     public void delete(int id) {
         userRepository.deleteById(id);
     }
